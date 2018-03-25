@@ -1,0 +1,19 @@
+
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <span><b>"${name!}"</b></span>
+		</div>
+		<div class="body-popup">
+                        <label class="label-delete">Add Tag</label>
+			<form method="post" action="tag">
+                        <input type="hidden" value="${noteid!}" name="note-id">
+                        <input type="hidden" value="${name!}" name="name">
+                        <input id="checkTag" type="text" name="tag" value="" class="popup-delete-addtag-adduser-input checkStringP"/>
+                        <input type="submit" value="AddTag" name="action" class="submitThis left popup-delete-addtag-adduser box-button-popup">
+			<input type="submit" value="back" name="action" class=" right popup-delete-addtag-adduser box-button-popup">
+                        
+			</form>
+                        <div class="boxMessageP ${box_message!}">${message!}</div>
+		</div>
+	</div>              

@@ -1,0 +1,91 @@
+    <div class="message-editor ${classMessage!}">
+        <div class="mex-div"><p>${message!} </p></div>
+        <div class="close-div"><a href="note?note=ShowNote" title="close" class="close-message"></a></div>
+    </div>
+
+
+<#if pendingNotes??>
+<#if (pendingNotes?size > 0)>
+    <div class="indic-shared">
+        <div class="shared-number">
+            <span>${pendingNotes?size}</span>
+        </div>
+        <div class="Shared">
+          
+                <div class="box-shared">
+                    
+                    <div class="header-list-shared">
+                        <span>New Invites</span>
+                    </div>
+
+                    <div class="list-generic-shared arrow-up">
+                        
+                        <#if (pendingNotes?size > 0)>
+                        <#list pendingNotes as pendingNote>
+                        <div class="list-shared">
+                            <div class="header-shared">
+                                <span>${pendingNote.title}</span>
+                            </div>
+                            <div class="body-shared">
+                                <div class="body-left-shared">
+                                    <span>${pendingNote.creatorUser(-1).emailAddress}</span>
+                                </div>
+                                <div class="body-right-shared">
+                                    <form method="post" action="logged">
+                                        <input type="hidden" name="note-id" value="${pendingNote.id}" class="button-share">
+                                        <input type="hidden" name="name" value="${pendingNote.title}" class="button-share">
+                                        <input type="hidden" name="userShared" value="${pendingNote.creatorUser(-1).emailAddress}" class="button-share">
+                                        <input type="submit" name="note" value="View" class="button-share">
+                                    </form>    
+                                </div>
+                            </div>
+                        </div>
+                        </#list>
+                        </#if>
+                        
+                    </div>
+                </div>             
+            
+        </div>
+   
+    </div>
+</#if>
+</#if>
+<div class="menu-SimplestNote">
+    
+    <ul>
+
+
+        <li class="${homeHidden!}">
+            <a href="/SimplestNote" title="Home" ><span class="icon-home"></span></a>
+        </li>
+        <li class="hidden ${homeShow!}">
+            <input type="submit" value="Home" name="note" class="icon-home">
+        </li>          
+        <li>
+            <a href="/SimplestNote/logged?note=TagList" title="Tags" ><span class="icon-tags-list"></span></a>
+        </li>
+        <li style="${css!}">
+            <a href="note?note=ShowNote"><span class="icon-edit"><span class="edit-number"><span>${num!}</span></span>
+                </span></a>
+        </li>
+        <li class="user-profile">
+            <span><b>Welcome</b><br> ${username!}</span>
+        </li>
+        <li>
+
+
+            <div class="icon-arrow">
+                <div class="box-option-profile">
+                    <img src="img/arrow-up.png" alt="" />
+                    <div class="rig1">
+                        <a class="${profileHidden!}" href="profile?profile=Profile">Profile</a>
+                        <input class="inputProfile ${profileShow!}" type="submit" value="Profile" name="note">
+                    </div>
+                    <div class="rig2"><a href="logout?logout=Logout" name="logout">Logout</a></div>
+                </div>
+            </div>
+
+        </li>
+    </ul>
+</div>

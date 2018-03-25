@@ -1,0 +1,15 @@
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <span><b>"${name}"</b></span>
+		</div>
+		<div class="body-popup">
+                        <label class="label-delete">Do you really want to delete this tag?</label>
+			<form method="post" action="tag">
+                        <input type="hidden" value="${tagid!}" name="Tag-id">
+                        <input type="submit" value="Yes" name="action" class="left popup-delete-tag box-button-popup">
+			<input type="submit" value="back" name="action" class=" right popup-delete-tag box-button-popup">
+                        
+			</form>
+		</div>
+	</div>

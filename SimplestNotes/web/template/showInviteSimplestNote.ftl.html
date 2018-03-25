@@ -1,0 +1,17 @@
+
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <span><b>"${email!}"</b></span>
+		</div>
+		<div class="body-popup">
+                    <label class="label-delete">Sorry! It seems that this email address does not belong to a SimplestNotes user! Do you want to invite him?</label><br><br><br>
+			<form method="post" action="InviteSimplestNote">
+                        <input type="hidden" value="${email!}" name="email">
+                        <input type="hidden" value="${by!}" name="by">
+                        <input type="submit" value="Invite" name="action" class="left popup-delete-addtag-adduser box-button-popup">
+			<input type="submit" value="back" name="action" class=" right popup-delete-addtag-adduser box-button-popup">
+			</form>
+
+		</div>
+	</div>    

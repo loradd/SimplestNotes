@@ -1,0 +1,76 @@
+	<div id="n2-editor" class="editor">
+            <div class="editor2">
+                       <!-- <form method="post" action="note">-->
+
+                            <div class="editor-header">
+
+                                    <div  class="label-textarea">
+                                            <div class="notes-icon"></div>
+                                            <input id="title2" class="" type="text" name="title2" value="${title2!}" ${disabled2!}>
+                                            <input type="hidden" name="state2" value="${state2!}">
+                                            <input type="hidden" name="id-note2" value="${idnote2!}">
+                                            <input type="hidden" name="acces2" value="${acces2!}">
+                                    </div>
+                                    <div class="bar-textarea">
+                                            <div id="checkSaveButton2" class="ul">
+                                                <a href="#" title="Maximize" class="max-edt2 hover maximize-icon"></a>
+                                                <a href="#" title="Minimize" class="min-edt2 hover minimize-icon"></a>                                                
+                                                <input title="New" type="submit" value="New2" name="note" class="hover new-icon" style="${DisplayNew2!}">
+                                                <#if DisplaySave2??>
+                                                    <input id="saveButton2" title="Save" type="submit" value="Save2" name="note" class="hover save-icon">                                             
+                                                </#if>
+                                                <input title="Close" type="submit" value="Close2" name="note" class="hover close-icon" style="${DisplayClose2!}">
+                                            </div>
+                                    </div>
+                            </div>
+                                    <div class="left-body">
+                                        
+                                            <textarea id="editor2" name="editor2" rows="10000" cols="50" ${disabled2!}>${editor2!}</textarea>
+<!-- CK Editor -->
+<script type="text/javascript">
+			// Replace the <textarea id="editor1"> with an CKEditor instance.
+			CKEDITOR.replace( 'editor2', {
+				on: {
+					focus: onFocus,
+					blur: onBlur,
+
+					// Check for availability of corresponding plugins.
+					pluginsLoaded: function( evt ) {
+						var doc = CKEDITOR.document, ed = evt.editor;
+						if ( !ed.getCommand( 'bold' ) )
+							doc.getById( 'exec-bold' ).hide();
+						if ( !ed.getCommand( 'link' ) )
+							doc.getById( 'exec-link' ).hide();
+					}
+				}
+			});
+		</script>
+
+
+		<div id="eButtons" style="display: none">
+			<input id="exec-bold" onclick="ExecuteCommand('bold');" type="button" value="Execute &quot;bold&quot; Command">
+			<input id="exec-link" onclick="ExecuteCommand('link');" type="button" value="Execute &quot;link&quot; Command">
+			<input onclick="Focus();" type="button" value="Focus">
+			<br><br>
+			<input onclick="InsertHTML();" type="button" value="Insert HTML">
+			<input onclick="SetContents();" type="button" value="Set Editor Contents">
+			<input onclick="GetContents();" type="button" value="Get Editor Contents (HTML)">
+			<br>
+			<textarea cols="100" id="htmlArea" rows="3">&lt;h2&gt;Test&lt;/h2&gt;&lt;p&gt;This is some &lt;a href="/Test1.html"&gt;sample&lt;/a&gt; HTML code.&lt;/p&gt;</textarea>
+			<br>
+			<br>
+			<input onclick="InsertText();" type="button" value="Insert Text">
+			<br>
+			<textarea cols="100" id="txtArea" rows="3">   First line with some leading whitespaces.
+			Second line of text preceded by two line breaks.</textarea>
+			<br>
+			<br>
+			<input onclick="CheckDirty();" type="button" value="checkDirty()">
+			<input onclick="ResetDirty();" type="button" value="resetDirty()">
+		</div>
+<!-- CK Editor -->
+                                    </div>
+
+                       <!-- </form> -->
+            </div>
+        </div>

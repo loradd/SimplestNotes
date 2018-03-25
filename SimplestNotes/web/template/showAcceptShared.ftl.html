@@ -1,0 +1,19 @@
+
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <span><b>"${name!}"</b></span>
+		</div>
+		<div class="body-popup">
+                    <label class="label-delete"><b>${userShared!}</b> invited you to join a note!</label>
+			<form method="post" action="Accept">
+                        <input type="hidden" value="${noteid}" name="note-id">
+                        <input type="hidden" value="${name}" name="name">
+                        <input type="hidden" value="${userShared}" name="userShared">
+                        <input type="submit" value="Accept" name="action" class="left popup-delete box-button-popup">
+			<input type="submit" value="Declined" name="action" class=" right popup-delete box-button-popup">
+                        
+			</form>
+                        <div class="${box_message!}">${message!}</div>
+		</div>
+	</div>     

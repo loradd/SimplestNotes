@@ -1,0 +1,14 @@
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+            <span><b>Hello ${name!} ${surname!}!</b></span>
+		</div>
+		<div class="body-popup">
+            <label class="label-delete">Do you really want to left us? All your data will be deleted once confirmed...</label>
+			<form method="post" action="profile">
+            	<input type="hidden" name="action" value="Remove">
+                <input type="submit" value="Remove" name="profile" class="left popup-delete box-button-popup">
+				<input type="submit" value="Back" name="profile" class=" right popup-delete box-button-popup">
+    		</form>
+		</div>
+	</div>    

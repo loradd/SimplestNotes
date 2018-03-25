@@ -1,0 +1,96 @@
+.boxMessageP {
+    color: red;
+    bottom: 0px;
+    position: absolute;
+    left: 1%;
+}
+.checkButton{
+    border-radius: 3px;
+    margin-right: 0px;
+    float: right;
+    height: 25px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: -5;
+}
+
+#buttonLogin{
+    border: 1px solid #ADD8E6;
+    height: 100%;
+    margin-top: 5px;
+    margin-right: 10px;
+    float: none;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+/*signin*/
+#checkButtonSign{
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: 0%;
+    width: 30%;
+    margin-left: 80%; 
+}
+#signinButton{
+    width: 100%;
+    margin: 20px 10px 10px 10px;
+}
+/*profile*/
+
+#checkEdit1{
+    float:right;
+}
+#checkEdit2{
+    float:right;
+
+}
+.validateForm{
+    border: 1px solid red !important;
+    background: antiquewhite;
+}
+
+.alertOff{
+  display: none;
+}
+.alertOn{
+	position: fixed;
+	z-index: 1000;
+	width: 40%;
+	/*border: 1px solid #fbeed5;*/
+	border-radius: 4px;
+	display: block;
+	text-align: center;
+	color: #b94a48;
+	background-color: #f2dede;
+	border-color: #eed3d7;
+  	top: 0;
+	margin-left: 30%;
+        margin-right: 30%;
+	margin-top: 3%;
+}
+.alertOn .center{
+  width: 50%;
+  margin-left: 0;
+}
+
+button.close {
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	margin-right: 4%;
+	-webkit-appearance: none;
+	float: right;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 2.4em;
+	color: #000000;
+	text-shadow: 0 1px 0 #ffffff;
+	opacity: 0.2;
+}
+.alertOn p{
+  cursor: default;
+}
+

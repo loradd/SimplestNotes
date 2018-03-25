@@ -1,0 +1,29 @@
+
+        
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <div class="logo-modal-SimplestNote"></div>
+                    <span><b>"${name!}"</b></span>
+		</div>
+		<div class="body-popup">
+                        <label class="label-delete">Share this note with your SimpleNotes friends!</label>
+			<form method="post" action="note">
+                            <div class="col-left-popup">
+                                <input type="hidden" value="${noteid!}" name="note-id">
+                                <input type="hidden" value="${name!}" name="name">
+                                <input ${readwrite!} type="radio" name="permission" value="readwrite" class="radio" />Read And Write<br>       
+                            </div>
+                            <div class="col-right-popup">
+                                <input ${readonly!} type="radio" name="permission" value="readonly" class="radio" />Read Only<br> 
+                            </div>
+
+                        <input type="text" name="Email" value="${email!}" class="checkMailP popup-delete-addtag-adduser-input shared-user-form"/>
+                        <input type="submit" value="Invite" name="note" class="submitThis left popup-delete-addtag-adduser box-button-popup {
+ ">
+			<input type="submit" value="back" name="note" class="right popup-delete-addtag-adduser box-button-popup {
+ ">
+                        </form>
+                        <div class="boxMessageP ${box_message!}">${message!}</div>
+		</div>
+	</div>    

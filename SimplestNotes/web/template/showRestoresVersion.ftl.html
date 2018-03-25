@@ -1,0 +1,18 @@
+
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <span><b>"${name!}"</b></span>
+		</div>
+		<div class="body-popup">
+                        <label class="label-delete">Are you sure you want to restore this note version?</label>
+			<form method="post" action="note">
+						<input type="hidden" value="${name!}" name="name">    
+                        <input type="hidden" value="${noteid!}" name="note-id">
+                        <input type="hidden" value="${version!}" name="version">
+                        <input type="submit" value="Restore" name="note" class="left popup-delete box-button-popup">
+			<input type="submit" value="back" name="note" class=" right popup-delete box-button-popup">
+                        
+			</form>
+		</div>
+	</div>        

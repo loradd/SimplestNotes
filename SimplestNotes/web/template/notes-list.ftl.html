@@ -1,0 +1,172 @@
+
+<div class="list-manager-note">
+    <div class="header-list-note">
+        <div class="title-list-note">
+            <form method="post" action="note">
+                <span>Notes</span><input type="submit" value="Edit" title="Add Note" class="menu-note-add" name="note">
+            </form>
+        </div>
+    </div>
+    
+    <div class="body-list-note">
+        <div class="list">
+            <#if (createdNotes)??>
+                <#if (createdNotes?size = 0)>
+                    <#if (readOnlyNotes)??>
+                        <#if (readOnlyNotes?size = 0)>
+                            <#if (readWriteNotes)??>
+                                <#if (readWriteNotes?size = 0)>
+                                    <div class="message-create-note">
+                                        <div class="message-create">
+                                            <form method="post" action="note">
+                                                <p>You don't have any note! <p><b>Come on...<b></p>
+                                              <span>Create new note</span><input type="submit" value="Edit" title="Add Note" class="menu-note-add" name="note">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </#if>
+                            </#if>
+                        </#if>
+                    </#if>
+                </#if>
+            </#if>
+            <#if (createdNotes)??>
+                <#if (createdNotes?size > 0)>
+                    <#list createdNotes as createdNote>
+                        <div class="list-note">
+                            <div class="box-Menu-Transition createdNotesColor">
+                                <div class="menu-icon"></div>
+                                <div class="container-Menu-Transition">
+                                   <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                           <a href="logged?note-id=${createdNote.id}&amp;note-version=${createdNote.version}&amp;name=${createdNote.title}&amp;note=UserList" class="SimplestNote-icon user-list" title="User List">Users</a>
+                                           <a href="logged?note-id=${createdNote.id}&amp;note-version=${createdNote.version}&amp;name=${createdNote.title}&amp;note=History" class="SimplestNote-icon history" title="History">History</a>
+                                           <a href="logged?note-id=${createdNote.id}&amp;note-version=${createdNote.version}&amp;name=${createdNote.title}&amp;note=AddUser" class="SimplestNote-icon add-user" title="Add user">Add User</a>
+                                           <a href="logged?note-id=${createdNote.id}&amp;note-version=${createdNote.version}&amp;name=${createdNote.title}&amp;note=Delete" class="SimplestNote-icon delete" title="Delete">Delete Note</a>
+                                           <a href="note?note-id=${createdNote.id}&amp;note-version=${createdNote.version}&amp;name=${createdNote.title}&amp;access=readWrite&amp;note=Edit" class="SimplestNote-icon edit" title="Edit">Edit Note</a>
+                                   </div>
+                               </div>  
+                            </div>
+                            <div class="container-view-note">
+                                <div class="manager-note-menu">
+                                    <div class="title-notes">
+                                        <span>${createdNote.title}</span>
+                                    </div>
+                                </div>
+                                <div class="manager-note-body">
+                                    <div class="text-note">
+                                        <span>${createdNote.lastUpdate} - Creator - Version ${createdNote.version}</span>
+                                    </div>
+                                    <div class="tag-note">
+                                        <div class="container-add-tags">
+                                                        <a href="logged?note-id=${createdNote.id}&amp;name=${createdNote.title}&amp;note=AddTag"><span class="add-tags"><span>Add Tag</span></span></a>
+                                        </div>
+                                        <div class="container-tags">
+                                        <#if createdNote.noteTags(-1)??>
+                                                <#list createdNote.noteTags(-1) as createdNoteTag>
+                                                        <div class="tag"><span>${createdNoteTag.content}</span><a title="Delete Tag" class="icon-delete-tag" href="tag?note-id=${createdNote.id}&amp;Tag-id=${createdNoteTag.id}&amp;action=RemoveTag"></a></div>      
+                                                </#list>
+                                        </#if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </#list>
+                
+                </#if>
+            </#if>
+            <#if (readWriteNotes)??>
+                <#if (readWriteNotes?size > 0)>
+                    <#list readWriteNotes as readWriteNote>
+                        <div class="list-note">
+                            <div class="box-Menu-Transition readWriteColor">
+                                <div class="menu-icon"></div>
+                                <div class="container-Menu-Transition">
+                                   <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                           <a href="logged?note-id=${readWriteNote.id}&amp;note-version=${readWriteNote.version}&amp;name=${readWriteNote.title}&amp;note=UserList" class="SimplestNote-icon user-list" title="User List">Users</a>
+                                           <a href="logged?note-id=${readWriteNote.id}&amp;note-version=${readWriteNote.version}&amp;name=${readWriteNote.title}&amp;note=History" class="SimplestNote-icon history" title="History">History</a>
+                                           <a href="logged?note-id=${readWriteNote.id}&amp;note-version=${readWriteNote.version}&amp;name=${readWriteNote.title}&amp;note=AddUser" class="SimplestNote-icon add-user" title="Add User">Add User</a>
+                                           <a href="logged?note-id=${readWriteNote.id}&amp;note-version=${readWriteNote.version}&amp;name=${readWriteNote.title}&amp;note=Delete" class="SimplestNote-icon exit-note" title="Exit">Leave Note</a>
+                                           <a href="note?note-id=${readWriteNote.id}&amp;note-version=${readWriteNote.version}&amp;name=${readWriteNote.title}&amp;access=readWrite&amp;note=Edit" class="SimplestNote-icon edit" title="Edit">Edit Note</a>
+                                   </div>
+                               </div>                                 
+                            </div>
+                            <div class="container-view-note">
+                                <div class="manager-note-menu">
+                                    <div class="title-notes">
+                                        <span>${readWriteNote.title}</span>
+                                    </div>
+                                </div>
+                                <div class="manager-note-body">
+                                    <div class="text-note">
+                                        <span>${readWriteNote.lastUpdate} - Read And Write - Version ${readWriteNote.version}</span>
+                                    </div>
+                                    <div class="tag-note">
+                                        <div class="container-add-tags">
+                                                        <a href="logged?note-id=${readWriteNote.id}&amp;name=${readWriteNote.title}&amp;note=AddTag"><div class="add-tags"><span>Add Tag</span></div></a>
+                                        </div>
+                                        <div class="container-tags">
+                                        <#if readWriteNote.noteTags(-1)??>
+                                            <#if (readWriteNote.noteTags(-1)?size > 0)>
+                                                <#list readWriteNote.noteTags(-1) as readWriteNoteTag>
+                                                        <div class="tag"><span>${readWriteNoteTag.content}</span><a title="Delete Tag" class="icon-delete-tag" href="tag?note-id=${readWriteNote.id}&amp;Tag-id=${readWriteNoteTag.id}&amp;action=RemoveTag"></a></div>      
+                                                </#list>
+                                            </#if>
+                                        </#if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </#list>
+                </#if>
+            </#if>
+            <#if (readOnlyNotes)??>
+                <#if (readOnlyNotes?size > 0)>
+                    <#list readOnlyNotes as readOnlyNote>
+                        <div class="list-note">
+                            <div class="box-Menu-Transition readOnlyColor">
+                                <div class="menu-icon"></div>
+                                <div class="container-Menu-Transition">
+                                   <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                           <a href="logged?note-id=${readOnlyNote.id}&amp;note-version=${readOnlyNote.version}&amp;name=${readOnlyNote.title}&amp;note=UserList" class="SimplestNote-icon user-list" title="User List">Users</a>
+                                           <a href="logged?note-id=${readOnlyNote.id}&amp;note-version=${readOnlyNote.version}&amp;name=${readOnlyNote.title}&amp;note=History" class="SimplestNote-icon history" title="History">History</a>
+                                           <a href="logged?note-id=${readOnlyNote.id}&amp;note-version=${readOnlyNote.version}&amp;name=${readOnlyNote.title}&amp;note=Delete" class="SimplestNote-icon exit-note" title="Exit">Leave Note</a>
+                                           <a href="note?note-id=${readOnlyNote.id}&amp;note-version=${readOnlyNote.version}&amp;name=${readOnlyNote.title}&amp;access=readOnly&amp;note=Edit" class="SimplestNote-icon view" title="View">View Note</a>
+                                   </div>
+                               </div>                                 
+                            </div>
+                            <div class="container-view-note">
+                                <div class="manager-note-menu">
+                                    <div class="title-notes">
+                                        <span>${readOnlyNote.title}</span>
+                                    </div>
+                                </div>
+                                <div class="manager-note-body">
+                                    <div class="text-note">
+                                        <span>${readOnlyNote.lastUpdate} - Read Only - Version ${readOnlyNote.version}</span>
+                                    </div>
+                                    <div class="tag-note">
+                                        <div class="container-add-tags">
+                                              
+                                        </div>
+                                        <div class="container-tags">
+                                        <#if readOnlyNote.noteTags(-1)??>
+                                            <#if (readOnlyNote.noteTags(-1)?size > 0)>
+                                                <#list readOnlyNote.noteTags(-1) as readOnlyNoteTag>
+                                                        <div class="tag"><span>${readOnlyNoteTag.content}</span></div>      
+                                                </#list>
+                                            </#if>
+                                        </#if>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </#list>
+                </#if>
+            </#if>
+         </div>
+    </div>
+
+</div>

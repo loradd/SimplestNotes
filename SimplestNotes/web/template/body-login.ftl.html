@@ -1,0 +1,45 @@
+	<div class="box-login-left">
+
+
+
+	<div class="box-presentation">
+		<div class="box-presentation-left">
+			<h1>Welcome to SimplestNotes</h1>
+			<p>Start creating a brand new project and share it with your friends!</p>
+		</div>
+		<div class="box-presentation-right">
+                    <div class="loco-SimplestNote-Cristina"></div>
+		</div>
+	</div>
+	</div>
+	<div class="box-login-right">
+				<div class="box-registered">
+						<div class="container-label">
+						 	<span>Register</span>
+						  </div>
+                                    
+					<div class="body-registered">
+                                            <div class="${box_message!}">${message!}</div>
+                                                <form method="post" action="profile">
+						<label>First Name</label><br>
+						<input class="nameSign unleash" type="text" name="nome" value="${nome!}" placeholder=" Inserisci il nome..." maxlength="100"/><br>
+						<label>Last Name</label><br>
+						<input class="surnameSign unleash" type="text" name="cognome" value="${cognome!}" placeholder=" Inserisci il cognome..." maxlength="100"/><br>
+						<label>Email Address</label><br>
+                                                <input class="mailSign unleash" type="text" name="email" value="${email!}" placeholder=" Inserisci l'indirizzo email..." maxlength="100"/><br>
+                                                <label class="labelPass">Password</label><div class="icon-info"><div class="box-info"><p>Your password must contain at least one capital character and a number!<br> For example: Marco90, Lorenzo91, Paolo88</p></div></div><br>
+                                                <input type="password" name="password1" placeholder=" Inserisci la password..." maxlength="100" class="${errorPassPass!} pass1Sign unleash" /><br>
+                                                <label>Confirm Password</label><br>
+						<input type="password" name="password2" placeholder=" Ripeti password..." maxlength="100" class="${errorPassPass!} pass2Sign unleash"/><br>
+                                                <!--Non modificare i nomi degli imput ne i valori-->
+                                                <div id="checkButtonSign"><input id="signinButton" type="submit" value="New" name="profile" class="button-input-registerede"></div>
+						</form>
+					</div>
+				</div>
+			
+
+
+
+
+
+	</div>

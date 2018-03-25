@@ -1,0 +1,153 @@
+<#if userTags??>
+<div class="manager-tags-users-history">
+
+    <div class="header-list-tags-users-history">
+        <div class="title-list-tags-users-history">
+            <span class="menu-tag-icon">Tags</span>
+        </div>
+    </div>
+    <div class="body-list-tags-users-history">
+        <div class="list-generic">
+            <#if (userTags?size > 0)>
+            <#list userTags as userTag>
+            <div class="list-tags-users-history">
+                <div class="single-tag"><span class="menu-tag-icon">${userTag.content}</span><a title="Delete Tag" class="icon-delete-tag-list" href="logged?tag-id=${userTag.id}&name=${userTag.content}&note=RemoveTag"></a></div>
+            </div>
+            </#list>
+            <#else>
+            <div class="list-tags-users-history">
+                <div class="single-tag"><span class="no-tag"> There are no tags... </span></div>
+            </div>
+            </#if>
+        </div>
+    </div>
+</div>
+
+</#if>
+
+<#if creatorUser??>
+<div class="manager-tags-users-history">
+    <div class="header-list-tags-users-history">
+        <div class="title-list-tags-users-history">
+            <span class="menu-user-icon">Users</span>
+        </div>
+    </div>
+    <div class="body-list-tags-users-history">
+        <div class="list-generic">
+            <#if (creatorUser?size == 0)&&(readOnlyNoteUsers?size == 0)&&(readWriteNotesUsers?size == 0)>
+                <div class="list-tags-users-history">
+                    <div class="single-tag"><span class="no-tag"> There are no users... </span></div>
+                </div>
+            </#if>
+            <#if (creatorUser?size > 0)>
+            <!--START USER LIST-->	
+            <#list creatorUser as creator>
+            <div class="list-tags-users-history">
+                <div class="title-users-history">
+                    <span>${creator.firstName} ${creator.lastName}</span>
+                </div>
+                <div class="description-users-history">
+                    <span>Creator</span>
+                </div>
+            </div>
+            </#list>
+            </#if>            
+       
+            <#if readOnlyNoteUsers??>
+                <#if (readOnlyNoteUsers?size > 0)>
+                    <#list readOnlyNoteUsers as readOnlyNoteUser>
+                        <div class="list-tags-users-history">
+                            <#if deleteUser??>
+                            <div class="menu-list-left readOnly">
+                                  <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                     <a title="Permission User" class="SimplestNote-icon user-permission" href="logged?note-id=${noteId}&email=${readOnlyNoteUser.emailAddress}&note=changePermission&permission=readonly"></a>
+                                  </div>                                
+                            </div>
+                            <div class="menu-list-right readOnly">
+                                  <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                      <a title="Remove User" class="SimplestNote-icon user-remove" href="logged?note-id=${noteId}&email=${readOnlyNoteUser.emailAddress}&note=RemoveUser"></a>
+                                  </div>                                   
+                            </div>   
+                            </#if>                             
+                            <div class="title-users-history">
+                                <span>${readOnlyNoteUser.firstName} ${readOnlyNoteUser.lastName}</span>
+                            </div>
+                            <div class="description-users-history">
+                                <span>Read Only</span>
+                            </div>
+                        </div>
+                    </#list>
+                    </#if>                    
+            </#if>
+            <#if readWriteNotesUsers??>
+                <#if (readWriteNotesUsers?size > 0)>
+                        <#list readWriteNotesUsers as readWriteNotesUser>
+                            <div class="list-tags-users-history">
+                            <#if deleteUser??>
+                            <div class="menu-list-left readWrite">
+                                  <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                     <a title="Permission User" class="SimplestNote-icon user-permission" href="logged?note-id=${noteId}&email=${readWriteNotesUser.emailAddress}&note=changePermission&permission=readwrite"></a>
+                                  </div>                                
+                            </div>
+                            <div class="menu-list-right readWrite">
+                                  <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                     <a title="Remove User" class="SimplestNote-icon user-remove" href="logged?note-id=${noteId}&email=${readWriteNotesUser.emailAddress}&note=RemoveUser"></a>
+                                  </div>                                   
+                            </div>   
+                            </#if>                                 
+                                <div class="title-users-history">
+                                    <span>${readWriteNotesUser.firstName} ${readWriteNotesUser.lastName}</span>
+                                </div>
+                                <div class="description-users-history">
+                                    <span>Read And Write</span>
+                                </div>
+                            </div>
+                        </#list>
+                    </#if>  
+            </#if>
+        </div>
+    </div>
+</div>
+</#if>
+
+<#if history??>
+<div class="manager-tags-users-history">
+    <div class="header-list-tags-users-history">
+        <div class="title-list-tags-users-history">
+            <span class="note-history list-history">History</span>
+        </div>
+    </div>
+    <div class="body-list-tags-users-history">
+        <div class="list-generic">
+            <#if (history?size > 0)>
+                <#list history as noteVersion >
+                    <div class="list-tags-users-history">
+                            <#if previousVersion??>
+                            <div class="menu-list-left readOnly">
+                                  <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                     <a title="View" class="SimplestNote-icon view-history" href="note?name=${noteVersion.title}&note-id=${noteVersion.id}&version=${noteVersion.version}&note=ShowHistory"></a>
+                                  </div>                                
+                            </div>
+                            <div class="menu-list-right readOnly">
+                                  <div class="SimplestNote-wrap SimplestNote-effect-base SimplestNote-effect-full">
+                                      <a title="Restore" class="SimplestNote-icon restore" href="logged?name=${noteVersion.title}&note-id=${noteVersion.id}&version=${noteVersion.version}&note=RestoreNote"></a>
+                                  </div>                                   
+                            </div>   
+                            </#if>                          
+                        <div class="title-users-history">
+                            <span>${noteVersion.title}</span>
+                        </div>
+                        <div class="description-users-history">
+                            <span>${noteVersion.lastUpdate}  - Version ${noteVersion.version}</span>
+                        </div>
+                    </div>
+                </#list>
+                    <#else>
+                    <div class="list-tags-users-history">
+                        <div class="single-tag"><span class="no-tag"> There are no previous versions... </span></div>
+                    </div>
+                    </#if>  
+        </div>
+    </div>
+</div>
+</#if>

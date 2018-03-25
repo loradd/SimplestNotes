@@ -1,0 +1,46 @@
+<li>
+
+            <div class="icon-shared">
+                <#if pendingNotes??>
+                <#if pendingNotes?size > 0>
+                <div class="shared-number">
+                    <span>${pendingNotes?size}</span>
+                </div>
+                </#if>
+                </#if>        
+                <div class="box-shared">
+                    <img src="img/arrow-up.png" width="20" height="20" />
+                    <div class="header-list-shared">
+                        <span>Pending Invites</span>
+                    </div>
+
+                    <div class="list-generic-shared arrow-up">
+                        <#if pendingNotes??>
+                        <#if pendingNotes?size > 0>
+                        <#list pendingNotes as note>
+                        <div class="list-shared">
+                            <div class="header-shared">
+                                <span>${note.title}</span>
+                            </div>
+                            <div class="body-shared">
+                                <div class="body-left-shared">
+                                    <span>${note.creatorUser}</span>
+                                </div>
+                                <div class="body-right-shared">
+                                    <form method="post" action="showAcceptShared">
+                                        <input type="hidden" name="note-id" value="${note.id}" class="button-share">
+                                        <input type="hidden" name="name" value="${note.title}" class="button-share">
+                                        <input type="hidden" name="userShared" value="${note.creatorUser}" class="button-share">
+                                        <input type="submit" value="View" class="button-share">
+                                    </form>    
+                                </div>
+                            </div>
+                        </div>
+                        </#list>
+                        </#if>
+                        </#if>
+                    </div>
+                </div>
+            </div>
+
+        </li>

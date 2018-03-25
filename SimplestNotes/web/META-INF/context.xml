@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/SimplestNote">
+    <!-- LORENZO -->
+    <!--<Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="10" maxIdle="5" maxWait="10000" name="jdbc/simpleNotes" password="root" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/simpleNotes" username="root"/> -->
+    <!-- MARCO + PAOLO -->
+    <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="10" maxIdle="5" maxWait="10000" name="jdbc/simplenotes" password="" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/simplenotes" username="root"/>
+</Context>

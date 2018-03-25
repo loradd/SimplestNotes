@@ -1,0 +1,16 @@
+
+        
+	<div class="box-black"></div>
+	<div id="box-form-popup" class="box-form-popup">
+		<div class="header-popup">
+                    <span><b>"${name}"</b></span>
+		</div>
+		<div class="body-popup">
+                        <label class="label-delete">Do you really want to delete this note?</label>
+			<form method="post" action="note">
+                            <input type="hidden" value="${noteid}" name="note-id">
+                            <input type="submit" value="Confirm" name="note" class="left popup-delete box-button-popup">
+                            <input type="submit" value="back" name="note" class=" right popup-delete box-button-popup">
+                        </form>
+		</div>
+	</div>        

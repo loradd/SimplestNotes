@@ -1,0 +1,74 @@
+	<div class="container-edit-profile">         
+            
+		
+		<div class="box-edit-profile">
+
+			<div class="box-body-profile">
+				<div class="box1-profile">
+                                    <div class="box-header-profile">
+                                    <span>Profile</span>
+                                    <a href="profile?profile=Remove&amp;action=show"><div title="Remove Account" class="setting"></div></a>
+                                    <div class="message-header"><span style="${AlertView!}">${messageProfile!}</span></div>
+                                    </div>
+                                        <form class="form-profile1" method="post" action="profile">
+						<label>First Name</label><br>
+						<input id="nameProfile" type="text" name="name" value="${name}" maxlength="100" class="${error!} checkStringN unleash"/><br>
+						<label>Last Name</label><br>
+						<input id="surnameProfile" type="text" name="surname" value="${surname}" maxlength="100" class="${error!} checkStringN unleash"/><br>
+						<label>Email Address</label><br>
+						<input id="mailProfile" type="text" name="email" value="${email}" maxlength="100" class="${error!}"/>
+                                                <div id="checkEdit1"><input id="buttonEdit1" type="submit" value="Edit" name="profile" class="button-input-editprofile"></div>
+					</form>
+                                        <form class="form-profile2" method="post" action="profile">
+                                                      <input type="hidden" name="name" value="${name}"/><br>
+                                                      <input type="hidden" name="surname" value="${surname}"/><br>
+                                                      <input type="hidden" name="email" value="${email}"/>
+                                              <div class="box1-profile-left">
+                                                  <input type="hidden" value="13" name="id">
+                                                      <label>Password</label><br>
+                                                      <input id="passProfile1" type="password" name="password1" maxlength="100" class="${errorPass!} ${errorPassPass!} unleash" /><br>
+                                                      <label>Old Password</label><br>
+                                                      <input id="passProfileOld" type="password" name="oldpass" maxlength="100" class="${errorPass!} ${errorOldPass!} unleash"/><br>
+                                              </div>
+                                              <div class="box1-profile-right">
+                                                      <label>Confirm Password</label><br>
+                                                      <input id="passProfile2" type="password" name="password2" maxlength="100" class="${errorPass!} ${errorPassPass!} unleash"/><br>
+                                                      <label>&nbsp;</label><br>
+                                                      <div id="checkEdit2"><input id="buttonEdit2" type="submit" value="Change" name="profile" class="button-input-editprofile"></div>
+                                              </div>
+                                      </form>                            
+				</div>
+				<div class="box2-profile">
+                                    <div class="box-header-profile">
+                                    <span>Friends List</span>
+                                    </div>    
+                                    <div class="my-contacts">
+                                         <div class="user-contacts">
+                                            <div class="body-list-contacts">
+                                                <div class="list-contacts">
+                                                    <#if contactList??>
+                                                        <#if (contactList?size > 0)>
+                                                            <#list contactList as contact>
+                                                                <div class="single-contact">
+                                                                    <div class="icon-user-contact"></div>
+                                                                    <div class="user-user-contact">
+                                                                        <span class="name-name">${contact.firstName} ${contact.lastName}</span>
+                                                                        <span class="name-mail">${contact.emailAddress}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </#list>
+                                                        <#else>
+                                                                <div class="single-contact">
+                                                                    <p class="no-contact"> You don't have any friend :( <p>
+                                                                </div>                                                        
+                                                        </#if>
+                                                    </#if>
+                                                    <!--INIZIO SINGOLO CONTATTO-->
+                                                </div>                                                  
+                                            </div>
+                                        </div>
+                                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
